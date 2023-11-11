@@ -4,7 +4,7 @@ import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class TransactionV1Repository {
-  private select: Prisma.TransactionSelect = {
+  private select: Prisma.TransactionV1Select = {
     id: true,
     amount: true,
     note: true,
@@ -14,8 +14,8 @@ export class TransactionV1Repository {
 
   constructor(private readonly prisma: PrismaService) {}
 
-  async findUnique(where: Prisma.TransactionWhereUniqueInput) {
-    return this.prisma.transaction.findUnique({
+  async findUnique(where: Prisma.TransactionV1WhereUniqueInput) {
+    return this.prisma.transactionV1.findUnique({
       where,
       select: this.select,
     });
@@ -24,12 +24,12 @@ export class TransactionV1Repository {
   async findMany(params: {
     skip?: number;
     take?: number;
-    cursor?: Prisma.TransactionWhereUniqueInput;
-    where?: Prisma.TransactionWhereInput;
-    orderBy?: Prisma.TransactionOrderByWithRelationInput;
+    cursor?: Prisma.TransactionV1WhereUniqueInput;
+    where?: Prisma.TransactionV1WhereInput;
+    orderBy?: Prisma.TransactionV1OrderByWithRelationInput;
   }) {
     const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.transaction.findMany({
+    return this.prisma.transactionV1.findMany({
       skip,
       take,
       cursor,
@@ -39,27 +39,27 @@ export class TransactionV1Repository {
     });
   }
 
-  async create(data: Prisma.TransactionUncheckedCreateInput) {
-    return this.prisma.transaction.create({
+  async create(data: Prisma.TransactionV1UncheckedCreateInput) {
+    return this.prisma.transactionV1.create({
       data,
       select: this.select,
     });
   }
 
   async update(params: {
-    where: Prisma.TransactionWhereUniqueInput;
-    data: Prisma.TransactionUpdateInput;
+    where: Prisma.TransactionV1WhereUniqueInput;
+    data: Prisma.TransactionV1UpdateInput;
   }) {
     const { where, data } = params;
-    return this.prisma.transaction.update({
+    return this.prisma.transactionV1.update({
       data,
       where,
       select: this.select,
     });
   }
 
-  async delete(where: Prisma.TransactionWhereUniqueInput) {
-    return this.prisma.transaction.delete({
+  async delete(where: Prisma.TransactionV1WhereUniqueInput) {
+    return this.prisma.transactionV1.delete({
       where,
     });
   }

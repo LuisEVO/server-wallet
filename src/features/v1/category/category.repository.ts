@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma.service';
-import { Category, Prisma } from '@prisma/client';
+import { CategoryV1, Prisma } from '@prisma/client';
 
 @Injectable()
 export class CategoryV1Repository {
   constructor(private readonly prisma: PrismaService) {}
 
   async findUnique(
-    whereUniqueInput: Prisma.CategoryWhereUniqueInput,
-  ): Promise<Category | null> {
-    return this.prisma.category.findUnique({
+    whereUniqueInput: Prisma.CategoryV1WhereUniqueInput,
+  ): Promise<CategoryV1 | null> {
+    return this.prisma.categoryV1.findUnique({
       where: whereUniqueInput,
     });
   }
@@ -17,12 +17,12 @@ export class CategoryV1Repository {
   async findMany(params: {
     skip?: number;
     take?: number;
-    cursor?: Prisma.CategoryWhereUniqueInput;
-    where?: Prisma.CategoryWhereInput;
-    orderBy?: Prisma.CategoryOrderByWithRelationInput;
-  }): Promise<Category[]> {
+    cursor?: Prisma.CategoryV1WhereUniqueInput;
+    where?: Prisma.CategoryV1WhereInput;
+    orderBy?: Prisma.CategoryV1OrderByWithRelationInput;
+  }): Promise<CategoryV1[]> {
     const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.category.findMany({
+    return this.prisma.categoryV1.findMany({
       skip,
       take,
       cursor,
@@ -31,25 +31,25 @@ export class CategoryV1Repository {
     });
   }
 
-  async create(data: Prisma.CategoryCreateInput): Promise<Category> {
-    return this.prisma.category.create({
+  async create(data: Prisma.CategoryV1CreateInput): Promise<CategoryV1> {
+    return this.prisma.categoryV1.create({
       data,
     });
   }
 
   async update(params: {
-    where: Prisma.CategoryWhereUniqueInput;
-    data: Prisma.CategoryUpdateInput;
-  }): Promise<Category> {
+    where: Prisma.CategoryV1WhereUniqueInput;
+    data: Prisma.CategoryV1UpdateInput;
+  }): Promise<CategoryV1> {
     const { where, data } = params;
-    return this.prisma.category.update({
+    return this.prisma.categoryV1.update({
       data,
       where,
     });
   }
 
-  async delete(where: Prisma.CategoryWhereUniqueInput): Promise<Category> {
-    return this.prisma.category.delete({
+  async delete(where: Prisma.CategoryV1WhereUniqueInput): Promise<CategoryV1> {
+    return this.prisma.categoryV1.delete({
       where,
     });
   }

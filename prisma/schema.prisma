@@ -17,28 +17,28 @@ model User {
   refreshToken String?
 }
 
-model Wallet {
-  id           Int           @id @default(autoincrement())
-  name         String        @unique
+model WalletV1 {
+  id           Int             @id @default(autoincrement())
+  name         String          @unique
   amount       Float
-  transactions Transaction[]
+  transactions TransactionV1[]
 }
 
-model Category {
-  id           Int           @id @default(autoincrement())
-  name         String        @unique
+model CategoryV1 {
+  id           Int             @id @default(autoincrement())
+  name         String          @unique
   type         String
-  transactions Transaction[]
+  transactions TransactionV1[]
 }
 
-model Transaction {
-  id         Int      @id @default(autoincrement())
+model TransactionV1 {
+  id         Int        @id @default(autoincrement())
   amount     Float
   note       String
   date       DateTime
-  category   Category @relation(fields: [categoryId], references: [id])
+  category   CategoryV1 @relation(fields: [categoryId], references: [id])
   categoryId Int
 
-  wallet   Wallet @relation(fields: [walletId], references: [id])
+  wallet   WalletV1 @relation(fields: [walletId], references: [id])
   walletId Int
 }

@@ -9,7 +9,6 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { CategoryV1Service } from './category.service';
-import { Category } from '@prisma/client';
 import { CategoryDto } from './category.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { CategoryModel } from './category.model';
@@ -23,7 +22,7 @@ export class CategoryV1Controller {
     type: CategoryModel,
   })
   @Get(':id')
-  async getById(@Param('id') id: string): Promise<Category> {
+  async getById(@Param('id') id: string) {
     return this.service.findById(Number(id));
   }
 
@@ -31,7 +30,7 @@ export class CategoryV1Controller {
     type: [CategoryModel],
   })
   @Get()
-  async getAll(): Promise<Category[]> {
+  async getAll() {
     return this.service.findMany();
   }
 
@@ -39,9 +38,7 @@ export class CategoryV1Controller {
     type: CategoryModel,
   })
   @Post()
-  async create(
-    @Body(new ValidationPipe()) data: CategoryDto,
-  ): Promise<Category> {
+  async create(@Body(new ValidationPipe()) data: CategoryDto) {
     return this.service.create(data);
   }
 
@@ -52,7 +49,7 @@ export class CategoryV1Controller {
   async update(
     @Param('id') id: string,
     @Body(new ValidationPipe()) data: CategoryDto,
-  ): Promise<Category> {
+  ) {
     return this.service.update(Number(id), data);
   }
 
@@ -60,7 +57,7 @@ export class CategoryV1Controller {
     type: CategoryModel,
   })
   @Delete(':id')
-  async delete(@Param('id') id: string): Promise<Category> {
+  async delete(@Param('id') id: string) {
     return this.service.delete(Number(id));
   }
 }

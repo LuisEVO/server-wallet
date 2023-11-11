@@ -10,7 +10,6 @@ import {
   Query,
 } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { Transaction } from '@prisma/client';
 import { TransactionDto } from './transaction.dto';
 import {
   TransactionWithCategoryModel,
@@ -27,7 +26,7 @@ export class TransactionV1Controller {
     type: TransactionWithCategoryModel,
   })
   @Get(':id')
-  async getById(@Param('id', ParseIntPipe) id: number): Promise<Transaction> {
+  async getById(@Param('id', ParseIntPipe) id: number) {
     return this.service.findById(id);
   }
 

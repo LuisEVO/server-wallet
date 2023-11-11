@@ -6,8 +6,8 @@ import { PrismaService } from '../../../prisma.service';
 export class WalletV1Repository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async findUnique(where: Prisma.WalletWhereUniqueInput) {
-    return this.prisma.wallet.findUnique({
+  async findUnique(where: Prisma.WalletV1WhereUniqueInput) {
+    return this.prisma.walletV1.findUnique({
       where,
     });
   }
@@ -15,12 +15,12 @@ export class WalletV1Repository {
   async findMany(params: {
     skip?: number;
     take?: number;
-    cursor?: Prisma.WalletWhereUniqueInput;
-    where?: Prisma.WalletWhereInput;
-    orderBy?: Prisma.WalletOrderByWithRelationInput;
+    cursor?: Prisma.WalletV1WhereUniqueInput;
+    where?: Prisma.WalletV1WhereInput;
+    orderBy?: Prisma.WalletV1OrderByWithRelationInput;
   }) {
     const { skip, take, cursor, where, orderBy } = params;
-    return this.prisma.wallet.findMany({
+    return this.prisma.walletV1.findMany({
       skip,
       take,
       cursor,
@@ -29,25 +29,25 @@ export class WalletV1Repository {
     });
   }
 
-  async create(data: Prisma.WalletCreateInput) {
-    return this.prisma.wallet.create({
+  async create(data: Prisma.WalletV1CreateInput) {
+    return this.prisma.walletV1.create({
       data,
     });
   }
 
   async update(params: {
-    where: Prisma.WalletWhereUniqueInput;
-    data: Prisma.WalletUpdateInput;
+    where: Prisma.WalletV1WhereUniqueInput;
+    data: Prisma.WalletV1UpdateInput;
   }) {
     const { where, data } = params;
-    return this.prisma.wallet.update({
+    return this.prisma.walletV1.update({
       data,
       where,
     });
   }
 
-  async delete(where: Prisma.WalletWhereUniqueInput) {
-    return this.prisma.wallet.delete({
+  async delete(where: Prisma.WalletV1WhereUniqueInput) {
+    return this.prisma.walletV1.delete({
       where,
     });
   }
