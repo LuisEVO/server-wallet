@@ -1,0 +1,1149 @@
+{
+	"info": {
+		"_postman_id": "bf8133fe-a7a3-487c-bcb4-911e0ed6894c",
+		"name": "Galaxy Wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1674259"
+	},
+	"item": [
+		{
+			"name": "V1",
+			"item": [
+				{
+					"name": "Wallet",
+					"item": [
+						{
+							"name": "Get All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV1}}/wallet",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"wallet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV1}}/wallet/1",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"wallet",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"cuenta sueldo\",\n  \"amount\": 1000.50\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/wallet",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"wallet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"cuenta sueldo\",\n  \"amount\": 1500.50\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/wallet/1",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"wallet",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"almuerzo\",\n  \"type\": \"gasto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/wallet/1",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"wallet",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Total Sum",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV1}}/wallet/total",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"wallet",
+										"total"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Transaction",
+					"item": [
+						{
+							"name": "Get All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/transaction",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"transaction"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV1}}/transaction/1",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"transaction",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 500,\n  \"note\": \"string\",\n  \"date\": \"2023-11-06T15:34:47.087Z\",\n  \"categoryId\": 2,\n  \"walletId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/transaction",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"transaction"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 10000,\n  \"note\": \"string\",\n  \"date\": \"2023-11-06T15:34:47.087Z\",\n  \"categoryId\": 1,\n  \"walletId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/transaction/1",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"transaction",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"almuerzo\",\n  \"type\": \"gasto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/transaction/47",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"transaction",
+										"47"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Get All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV1}}/category",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV1}}/category/2",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"category",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"deposito\",\n  \"type\": \"ingreso\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/category",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"desayuno\",\n  \"type\": \"gasto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/category/15",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"category",
+										"15"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"almuerzo\",\n  \"type\": \"gasto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV1}}/category/15",
+									"host": [
+										"{{baseUrlV1}}"
+									],
+									"path": [
+										"category",
+										"15"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "V2",
+			"item": [
+				{
+					"name": "Wallet",
+					"item": [
+						{
+							"name": "Get All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV2}}/wallet",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"wallet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV2}}/wallet/1",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"wallet",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"cuenta sueldo\",\n  \"amount\": 1000.50\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/wallet",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"wallet"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"cuenta sueldo\",\n  \"amount\": 1500.50\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/wallet/1",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"wallet",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"almuerzo\",\n  \"type\": \"gasto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/wallet/1",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"wallet",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Total Sum",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV2}}/wallet/total",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"wallet",
+										"total"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{accessToken}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Transaction",
+					"item": [
+						{
+							"name": "Get All",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/transaction",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"transaction"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV2}}/transaction/1",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"transaction",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 500,\n  \"note\": \"string\",\n  \"date\": \"2023-11-06T15:34:47.087Z\",\n  \"categoryId\": 2,\n  \"walletId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/transaction",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"transaction"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"amount\": 10000,\n  \"note\": \"string\",\n  \"date\": \"2023-11-06T15:34:47.087Z\",\n  \"categoryId\": 1,\n  \"walletId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/transaction/1",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"transaction",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"almuerzo\",\n  \"type\": \"gasto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/transaction/47",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"transaction",
+										"47"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{accessToken}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Get All",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV2}}/category",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get One",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrlV2}}/category/2",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"category",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"deposito\",\n  \"type\": \"ingreso\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/category",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"desayuno\",\n  \"type\": \"gasto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/category/3",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"category",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"almuerzo\",\n  \"type\": \"gasto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/category/3",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"category",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{accessToken}}",
+								"type": "string"
+							}
+						]
+					},
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Sign Up",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set(\"refreshToken\", jsonData.refreshToken)",
+											"pm.collectionVariables.set(\"accessToken\", jsonData.accessToken)",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@mail.com\",\n    \"password\": \"test1234.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/auth/sign-up",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"auth",
+										"sign-up"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign In",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set(\"refreshToken\", jsonData.refreshToken)",
+											"pm.collectionVariables.set(\"accessToken\", jsonData.accessToken)",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@mail.com\",\n    \"password\": \"test1234.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/auth/sign-in",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"auth",
+										"sign-in"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign In User 1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set(\"refreshToken\", jsonData.refreshToken)",
+											"pm.collectionVariables.set(\"accessToken\", jsonData.accessToken)",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test@mail.com\",\n    \"password\": \"test1234.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/auth/sign-in",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"auth",
+										"sign-in"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign In User 2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set(\"refreshToken\", jsonData.refreshToken)",
+											"pm.collectionVariables.set(\"accessToken\", jsonData.accessToken)",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"test2@mail.com\",\n    \"password\": \"test1234.\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/auth/sign-in",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"auth",
+										"sign-in"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody)",
+											"pm.collectionVariables.set(\"refreshToken\", jsonData.refreshToken)",
+											"pm.collectionVariables.set(\"accessToken\", jsonData.accessToken)",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{refreshToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrlV2}}/auth/refresh/token",
+									"host": [
+										"{{baseUrlV2}}"
+									],
+									"path": [
+										"auth",
+										"refresh",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrlV1",
+			"value": "http://localhost:3000/v1"
+		},
+		{
+			"key": "baseUrlV2",
+			"value": "http://localhost:3000/v2"
+		},
+		{
+			"key": "refreshToken",
+			"value": ""
+		},
+		{
+			"key": "accessToken",
+			"value": ""
+		}
+	]
+}
