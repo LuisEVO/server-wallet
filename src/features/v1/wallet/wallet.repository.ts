@@ -6,8 +6,21 @@ import { PrismaService } from '../../../prisma.service';
 export class WalletV1Repository {
   constructor(private readonly prisma: PrismaService) {}
 
+  async aggregateSum(_sum: Prisma.WalletV1SumAggregateInputType) {
+    return this.prisma.walletV1.aggregate({
+      _sum,
+    });
+  }
+
   async findUnique(where: Prisma.WalletV1WhereUniqueInput) {
     return this.prisma.walletV1.findUnique({
+      where,
+    });
+  }
+
+  async findFirst(params: { where?: Prisma.WalletV1WhereInput }) {
+    const { where } = params;
+    return this.prisma.walletV1.findFirst({
       where,
     });
   }

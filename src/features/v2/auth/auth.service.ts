@@ -3,13 +3,13 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
 import { AuthDto } from './auth.dto';
-import { UserService } from '../user/user.service';
+import { UserV2Service } from '../user/user.service';
 import { UserDto } from '../user/user.dto';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private userService: UserService,
+    private userService: UserV2Service,
     private jwtService: JwtService,
     private configService: ConfigService,
   ) {}

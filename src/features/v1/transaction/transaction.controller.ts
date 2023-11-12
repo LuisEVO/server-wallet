@@ -12,6 +12,7 @@ import {
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { TransactionDto } from './transaction.dto';
 import {
+  TransactionFilters,
   TransactionWithCategoryModel,
   TransactionWithRalationIdsModel,
 } from './transaction.model';
@@ -34,11 +35,8 @@ export class TransactionV1Controller {
     type: [TransactionWithCategoryModel],
   })
   @Get()
-  async getAll(
-    @Query('page', ParseIntPipe) page: number,
-    @Query('pageSize', ParseIntPipe) pageSize: number,
-  ) {
-    return this.service.findMany({ page, pageSize });
+  async getAll(@Query() query: TransactionFilters) {
+    return this.service.findMany(query);
   }
 
   @ApiCreatedResponse({

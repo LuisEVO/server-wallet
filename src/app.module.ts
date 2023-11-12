@@ -5,7 +5,10 @@ import { CategoryV1Module } from './features/v1/category/category.module';
 import { TransactionV1Module } from './features/v1/transaction/transaction.module';
 import { WalletV1Module } from './features/v1/wallet/wallet.module';
 import { AuthModule } from './features/v2/auth/auth.module';
-import { UserModule } from './features/v2/user/user.module';
+import { UserV2Module } from './features/v2/user/user.module';
+import { WalletV2Module } from './features/v2/wallet/wallet.module';
+import { CategoryV2Module } from './features/v2/category/category.module';
+import { TransactionV2Module } from './features/v2/transaction/transaction.module';
 
 @Module({
   imports: [
@@ -14,7 +17,10 @@ import { UserModule } from './features/v2/user/user.module';
     WalletV1Module,
     CategoryV1Module,
     TransactionV1Module,
-    UserModule,
+    UserV2Module,
+    WalletV2Module,
+    CategoryV2Module,
+    TransactionV2Module,
     AuthModule,
   ],
 })

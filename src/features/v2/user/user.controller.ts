@@ -9,8 +9,7 @@ import {
   UseGuards,
   ValidationPipe,
 } from '@nestjs/common';
-import { UserService } from './user.service';
-import { User } from '@prisma/client';
+import { UserV2Service } from './user.service';
 import { UserDto } from './user.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { UserModel } from './user.model';
@@ -20,13 +19,13 @@ import { AccessTokenGuard } from '../../../common/guards/access-token.guard';
 @UseGuards(AccessTokenGuard)
 @Controller({ version: '2', path: 'user' })
 export class UserController {
-  constructor(private readonly service: UserService) {}
+  constructor(private readonly service: UserV2Service) {}
 
   @ApiOkResponse({
     type: UserModel,
   })
   @Get(':id')
-  async getById(@Param('id') id: string): Promise<User> {
+  async getById(@Param('id') id: string) {
     return this.service.findById(Number(id));
   }
 
@@ -34,7 +33,7 @@ export class UserController {
     type: [UserModel],
   })
   @Get()
-  async getAll(): Promise<User[]> {
+  async getAll() {
     return this.service.findMany();
   }
 
@@ -42,7 +41,7 @@ export class UserController {
     type: UserModel,
   })
   @Post()
-  async create(@Body(new ValidationPipe()) data: UserDto): Promise<User> {
+  async create(@Body(new ValidationPipe()) data: UserDto) {
     return this.service.create(data);
   }
 
@@ -53,7 +52,7 @@ export class UserController {
   async update(
     @Param('id') id: string,
     @Body(new ValidationPipe()) data: UserDto,
-  ): Promise<User> {
+  ) {
     return this.service.update(Number(id), data);
   }
 
@@ -61,7 +60,7 @@ export class UserController {
     type: UserModel,
   })
   @Delete(':id')
-  async delete(@Param('id') id: string): Promise<User> {
+  async delete(@Param('id') id: string) {
     return this.service.delete(Number(id));
   }
 }

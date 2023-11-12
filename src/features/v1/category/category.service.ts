@@ -24,8 +24,8 @@ export class CategoryV1Service {
   }
 
   async findByName(name: string): Promise<CategoryModel | null> {
-    return this.repository.findUnique({
-      name,
+    return this.repository.findFirst({
+      where: { name },
     });
   }
 
@@ -33,9 +33,11 @@ export class CategoryV1Service {
     id: number,
     name: string,
   ): Promise<CategoryModel | null> {
-    return this.repository.findUnique({
-      name,
-      NOT: { id },
+    return this.repository.findFirst({
+      where: {
+        name,
+        NOT: { id },
+      },
     });
   }
 

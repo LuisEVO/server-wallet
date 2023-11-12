@@ -11,12 +11,20 @@ import {
 import { WalletV1Service } from './wallet.service';
 import { WalletDto } from './wallet.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { WalletModel } from './wallet.model';
+import { WalletAmountModel, WalletModel } from './wallet.model';
 
 @ApiTags('wallet')
 @Controller({ version: '1', path: 'wallet' })
 export class WalletV1Controller {
   constructor(private readonly service: WalletV1Service) {}
+
+  @ApiOkResponse({
+    type: WalletAmountModel,
+  })
+  @Get('total')
+  async getTotal() {
+    return this.service.getTotal();
+  }
 
   @ApiOkResponse({
     type: WalletModel,

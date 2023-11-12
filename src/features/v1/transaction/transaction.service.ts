@@ -24,9 +24,14 @@ export class TransactionV1Service {
     return transaction;
   }
 
-  async findMany(params: { page?: number; pageSize?: number }) {
-    const { page: skip, pageSize: take } = params;
-    return this.repository.findMany({ skip, take });
+  async findMany(params: {
+    page?: number;
+    pageSize?: number;
+    walletId?: number;
+  }) {
+    const { page: skip, pageSize: take, walletId } = params;
+    const where = walletId ? {} : { walletId };
+    return this.repository.findMany({ skip, take, where });
   }
 
   async create(data: TransactionDto) {

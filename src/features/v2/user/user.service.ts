@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { UserRepository } from './user.repository';
+import { UserV2Repository } from './user.repository';
 import { UserDto } from './user.dto';
 import { UserModel } from './user.model';
 
 @Injectable()
-export class UserService {
-  constructor(private readonly repository: UserRepository) {}
+export class UserV2Service {
+  constructor(private readonly repository: UserV2Repository) {}
 
   async findById(id: number): Promise<UserModel | null> {
     return this.repository.findUnique({

@@ -11,6 +11,11 @@ import { WalletV1Repository } from './wallet.repository';
 export class WalletV1Service {
   constructor(private readonly repository: WalletV1Repository) {}
 
+  async getTotal() {
+    const total = await this.repository.aggregateSum({ amount: true });
+    return total._sum;
+  }
+
   async findById(id: number) {
     const wallet = await this.repository.findUnique({
       id,
@@ -24,15 +29,17 @@ export class WalletV1Service {
   }
 
   async findByName(name: string) {
-    return this.repository.findUnique({
-      name,
+    return this.repository.findFirst({
+      where: { name },
     });
   }
 
   async findByNameExcludeThis(id: number, name: string) {
-    return this.repository.findUnique({
-      name,
-      NOT: { id },
+    return this.repository.findFirst({
+      where: {
+        name,
+        NOT: { id },
+      },
     });
   }
 

@@ -14,6 +14,13 @@ export class CategoryV1Repository {
     });
   }
 
+  async findFirst(params: { where?: Prisma.CategoryV1WhereInput }) {
+    const { where } = params;
+    return this.prisma.categoryV1.findFirst({
+      where,
+    });
+  }
+
   async findMany(params: {
     skip?: number;
     take?: number;
