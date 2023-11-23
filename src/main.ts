@@ -7,6 +7,7 @@ import { ValidationPipe, VersioningType } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors();
   app.enableVersioning({ type: VersioningType.URI });
   app.useGlobalFilters(new PrismaClientExceptionFilter());
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
