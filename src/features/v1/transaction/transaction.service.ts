@@ -30,7 +30,7 @@ export class TransactionV1Service {
     walletId?: number;
   }) {
     const { page: skip, pageSize: take, walletId } = params;
-    const where = walletId ? {} : { walletId };
+    const where = walletId ? { walletId } : {};
     return this.repository.findMany({ skip, take, where });
   }
 
