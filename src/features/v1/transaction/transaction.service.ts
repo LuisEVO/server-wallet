@@ -29,9 +29,13 @@ export class TransactionV1Service {
     pageSize?: number;
     walletId?: number;
   }) {
-    const { page: skip, pageSize: take, walletId } = params;
+    const { page, pageSize, walletId } = params;
     const where = walletId ? { walletId } : {};
-    return this.repository.findMany({ skip, take, where });
+    return this.repository.findMany({
+      skip: page * pageSize,
+      take: pageSize,
+      where,
+    });
   }
 
   async create(data: TransactionDto) {
