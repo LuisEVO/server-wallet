@@ -9,7 +9,10 @@ export class TransactionV2Repository {
     amount: true,
     note: true,
     date: true,
+    categoryId: true,
     category: true,
+    walletId: true,
+    wallet: true,
   };
 
   constructor(private readonly prisma: PrismaService) {}
